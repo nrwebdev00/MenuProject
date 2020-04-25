@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bottega Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/meal-select.css">
+</head>
+<body>
+    <div class="heading-top">
+        <h1><a href="./index.html">Bottega Menu</a></h1>
+    </div>
+    <div class="sub-heading-info">
+        <span class="sub-heading">Please Slecet Which Meal Period You Would Like to Order Form </span>
+    </div>
+    <div class="meal-select-wrapper">
+        <div class="info-panel">
+            <h1>
+                <span class="sub-heading" >Please Select Which Meal period to Order form</span>
+                <div id="order-info">
+                    <span>Your Total is: <span id="display-total"></span><br></span>
+                </div>
+
+            </h1>
+        </div>
+        <div class="meal-card-wrapper" id="meal-select">
+            <div class="meal-period-card">
+                <div class="btn" id="breakfast" onClick="breakfast()">Breakfast</div>
+            </div>
+            <div class="meal-period-card">
+                <div class="btn" id="lunch" onclick="lunch()">Lunch</div>
+            </div>
+            <div class="meal-period-card">
+                <div class="btn" id="dinner" onclick="dinner()">Dinner</div>
+            </div>
+        </div>
+        <div class="order-meal-wrapper" id="order-menu">
+            <div class="menu-wrapper">
+                <div class="row">
+                    <div class="order-card"  id="item-1">
+                        <div class="order-card-title">
+                            <div class="item">Item</div>
+                            <div class="price">Price</div>
+                        </div>
+                        <div class="order-btn" onclick="orderItem1()">Order Item</div>
+                        <div class="options">
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addOne()">add</div>
+                            </div>
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addTwo()">add</div>
+                            </div>
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addThree()">add</div>
+                            </div>
+                            <div class="btn" onclick="PlaceOrder()">Place Order</div>
+                            <div class="total-wrapper">
+                                <div class="total-display"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-card" id="item-2">
+                        <div class="order-card-title">
+                            <div class="item">Item</div>
+                            <div class="price">Price</div>
+                        </div>
+                        <div class="order-btn" onclick="orderItem2()">Order Item</div>
+                        <div class="options">
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addFour()">add</div>
+                            </div>
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addFive()">add</div>
+                            </div>
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addSix()">add</div>
+                            </div>
+                            <div class="btn" onclick="PlaceOrder()">Place Order</div>
+                        </div>
+                    </div>
+                    <div class="order-card" id="item-3">
+                        <div class="order-card-title">
+                            <div class="item">Item</div>
+                            <div class="price">Price</div>
+                        </div>
+                        <div class="order-btn" onclick="orderItem3()">Order Item</div>
+                        <div class="options">
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addSeven()">add</div>
+                            </div>
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addEight()">add</div>
+                            </div>
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addNine()">add</div>
+                            </div>
+                            <div class="btn" onclick="PlaceOrder()">Place Order</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="order-card" id="item-4">
+                        <div class="order-card-title">
+                            <div class="item">Item</div>
+                            <div class="price">Price</div>
+                        </div>
+                        <div class="order-btn" onclick="orderItem4()">Order Item</div>
+                        <div class="options">
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addTen()">add</div>
+                            </div>
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addEleven()">add</div>
+                            </div>
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addTwelve()">add</div>
+                            </div>
+                            <div class="btn" onclick="PlaceOrder()">Place Order</div>
+                        </div>
+                    </div>
+                    <div class="order-card" id="item-5">
+                        <div class="order-card-title">
+                            <div class="item">Item</div>
+                            <div class="price">Price</div>
+                        </div>
+                        <div class="order-btn" onclick="orderItem5()">Order Item</div>
+                        <div class="options">
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addThreeteen()">add</div>
+                            </div>
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addFourteen()">add</div>
+                            </div>
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addFiveTeen()">add</div>
+                            </div>
+                            <div class="btn" onclick="PlaceOrder()">Place Order</div>
+                        </div>
+                    </div>
+                    <div class="order-card" id="item-6">
+                        <div class="order-card-title">
+                            <div class="item">Item</div>
+                            <div class="price">Price</div>
+                        </div>
+                        <div class="order-btn" onclick="orderItem6()">Order Item</div>
+                        <div class="options">
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addSixteen()">add</div>
+                            </div>
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addSevenTeen()">add</div>
+                            </div>
+                            <div class="option">
+                                <div class="name"></div>
+                                <div class="option-price"></div>
+                                <div class="add-btn" onclick="addEightTeen()">add</div>
+                            </div>
+                            <div class="btn" onclick="PlaceOrder()">Place Order</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="confirm-order">
+                <div class="greeting"></div>
+                <div id="total">
+                    <span>Your Final Total is:</span>
+                    <div class="final-total"></div>
+                </div>
+                <ul>
+                    <li>Your Order is:</li>
+                    <li class="what-isorder"></li>
+                    <li class="what-isorder"></li>
+                    <li class="what-isorder"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+    <script src="js/app.js"></script>
+</html>

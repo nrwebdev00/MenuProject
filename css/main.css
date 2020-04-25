@@ -1,0 +1,251 @@
+/* line 7, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+body {
+  background-color: navajowhite;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 500;
+  color: #519331;
+}
+
+/* line 12, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* line 16, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+#order-menu {
+  display: none;
+}
+
+/* line 19, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.options {
+  display: none;
+}
+
+/* line 22, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.confirm-order {
+  display: none;
+}
+
+/* line 25, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.heading-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #D4916A;
+  color: #AA6239;
+  margin: 0;
+  border-bottom: 4px solid #184A00;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.65);
+}
+
+/* line 33, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.heading-top > h1 {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 3.0em;
+  padding: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.65);
+}
+
+/* line 39, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.sub-heading-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 100;
+  background-color: #ABDD93;
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 1.5em;
+  border-bottom: 1px solid #803c15;
+}
+
+/* line 48, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.btn {
+  border: 1px solid #184A00;
+  border-radius: 5px;
+  background-color: #184A00;
+  color: #ABDD93;
+  padding: 25px;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 1.75em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.65);
+  cursor: pointer;
+}
+
+/* line 59, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.order-meal-wrapper {
+  flex: 5;
+}
+
+/* line 62, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.menu-wrapper {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px;
+  padding: 25px;
+}
+
+/* line 68, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.menu-wrapper > .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 50px;
+}
+
+/* line 73, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.order-card {
+  height: 300px;
+  border: 2px solid #184A00;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.65);
+  padding: 15px;
+}
+
+/* line 80, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.order-card-title {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  margin-bottom: 30px;
+}
+
+/* line 86, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.item, .price {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 100;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+/* line 91, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.order-btn, .confirm-order-btn {
+  margin-bottom: 20px;
+  height: 40px;
+  border: 1px solid #184A00;
+  border-radius: 5px;
+  background-color: #184A00;
+  color: navajowhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+/* line 103, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.order-card-options {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 100;
+  font-size: 1.2em;
+}
+
+/* line 107, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.order-card-options li {
+  margin-bottom: 5px;
+}
+
+/* line 110, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.order-card-options li:nth-child(1) {
+  text-align: center;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+/* line 115, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.order-card-options li:nth-child(4) {
+  margin-bottom: 30px;
+}
+
+/* line 118, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.options {
+  display: none;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 5px;
+}
+
+/* line 123, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.option {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+}
+
+/* line 128, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.name, .price {
+  margin-top: 5px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 100;
+  text-transform: capitalize;
+  font-size: 1.20em;
+}
+
+/* line 134, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.add-btn {
+  border: 1px solid #184A00;
+  background-color: #184A00;
+  color: navajowhite;
+  height: 25px;
+  width: 35px;
+  font-size: .85em;
+  padding: 5px 2px 2px 2px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 100;
+  text-align: center;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+/* line 147, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.confirm-order {
+  grid-template-rows: 1fr 2fr 4fr;
+  grid-gap: 20px;
+  padding: 75px 150px;
+}
+
+/* line 152, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.confirm-order > .greeting {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 3.0em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.65);
+}
+
+/* line 157, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.confirm-order > #total > span {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 500;
+  font-size: 2.5em;
+  padding-bottom: 15px;
+}
+
+/* line 162, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.confirm-order > #total > .final-total {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 100;
+  font-size: 2.25em;
+  padding: 25px 0 0 100px;
+}
+
+/* line 167, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.confirm-order > ul > li {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 100;
+  font-size: 2.25em;
+  padding: 25px 0 0 100px;
+}
+
+/* line 172, ../../../Documents/Bottega/MenuProject/scss/main.scss */
+.confirm-order > ul > li:nth-child(1) {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 500;
+  font-size: 2.5em;
+  padding: 0;
+}
+
+/*# sourceMappingURL=main.css.map */

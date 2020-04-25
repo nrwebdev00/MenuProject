@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "colors.css",
+	"sources": [
+		"../scss/colors.scss"
+	],
+	"sourcesContent": [
+		"$green-main: #519331;\r\n$brown-orange: #AA6239;\r\n$background: #ABDD93;\r\n$text-light-brown: #D4916A;\r\n$dark-green: #184A00;\r\n$warning: #5d0f4c;\r\n$info: #803c15;\r\n$shadow: rgba(0, 0, 0, .65);\r\n$off-white: navajowhite;\r\n"
+	],
+	"names": [],
+	"mappings": ""
+}

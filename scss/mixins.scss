@@ -1,0 +1,88 @@
+@mixin font-family($thin-100: false, $default: false, $default_i: false, $title: false, $link: false){
+  @if $thin-100 != false {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 100;
+  }
+  @if $default != false {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 500;
+  }
+  @if $default_i != false {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  @if $title != false {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 800;
+  }
+  @if $link != false {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 600;
+  }
+}
+@mixin flexbox-container($justify-content: false, $flex: false, $flex-direction: false, $align-items: false,
+      $flex-wrap: false, $flex-flow: false, $align-content: false, $inline: false){
+  @if $inline == false{
+    display: flex;
+  }
+  @if $inline != false {
+    display: $inline;
+  }
+  @if $justify-content != false {
+    justify-content: $justify-content;
+  }
+  @if $flex != false {
+    flex: $flex;
+  }
+  @if $flex-direction != false {
+    flex-direction: $flex-direction;
+  }
+  @if $align-items != false {
+    align-items: $align-items;
+  }
+  @if $flex-wrap != false {
+    flex-wrap: $flex-wrap;
+  }
+  @if $flex-flow != false {
+    flex-flow: $flex-flow;
+  }
+  @if $align-content != false {
+    align-content: $align-content;
+  }
+}
+@mixin flexbox-item($order: false, $flex-grow: false, $flex-shrink: false,
+        $flex-basis: false, $flex: false, $align-self: false){
+  @if $order != false {
+    order: $order;
+  }
+  @if $flex-grow != false {
+    flex-grow: $flex-grow;
+  }
+  @if $flex-shrink!= false {
+    flex-shrink: $flex-shrink;
+  }
+  @if $flex-basis != false {
+    flex-basis: $flex-basis;
+  }
+  @if $flex != false {
+    flex: $flex;
+  }
+  @if $align-self != false {
+    align-self: $align-self;
+  }
+}
+@function border($size: false, $style: false, $color: false){
+  @if $size == false{
+    $size: 1px;
+  }
+  @if $style == false{
+    $style: solid
+  }
+  @if $color == false{
+    $color: black
+  }
+  $border: $size $style $color;
+  @return $border;
+}
+//default border: 1px solid black

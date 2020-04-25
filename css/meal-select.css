@@ -1,0 +1,47 @@
+/* line 4, ../../../Documents/Bottega/MenuProject/scss/meal-select.scss */
+.meal-select-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  min-height: 400px;
+  max-height: 800px;
+  border-bottom: 2px solid #AA6239;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.65);
+}
+
+/* line 11, ../../../Documents/Bottega/MenuProject/scss/meal-select.scss */
+.meal-select-wrapper > .info-panel {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #184A00;
+  color: #ABDD93;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 2.5em;
+  text-align: center;
+  padding: 20px 0 0 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.65);
+}
+
+/* line 23, ../../../Documents/Bottega/MenuProject/scss/meal-select.scss */
+.meal-select-wrapper > .meal-card-wrapper {
+  flex: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 25px;
+  margin-top: 125px;
+  margin-right: 15px;
+  background-color: navajowhite;
+  padding: 20px 0 0 20px;
+}
+
+/* line 33, ../../../Documents/Bottega/MenuProject/scss/meal-select.scss */
+.meal-select-wrapper > .meal-card-wrapper > .meal-period-card {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*# sourceMappingURL=meal-select.css.map */

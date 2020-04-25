@@ -1,0 +1,36 @@
+@import "mixins";
+@import "colors";
+
+.meal-select-wrapper{
+  @include flexbox-container($justify-content: space-evenly);
+  min-height: 400px;
+  max-height: 800px;
+  border-bottom: 2px solid $brown-orange;
+  box-shadow: 6px 6px 6px $shadow;
+}
+.meal-select-wrapper > .info-panel {
+  @include flexbox-item($flex: 2);
+  @include flexbox-container($justify-content: center, $align-items: center);
+  background-color: $dark-green;
+  color: $background;
+  @include font-family($title: true);
+  font-size: 2.5em;
+  text-align: center;
+  padding: 20px 0 0 20px;
+  text-shadow: 2px 2px 4px $shadow;
+
+}
+.meal-select-wrapper > .meal-card-wrapper {
+  @include flexbox-item($flex: 3);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 25px;
+  margin-top: 125px;
+  margin-right: 15px;
+  background-color: $off-white;
+  padding: 20px 0 0 20px;
+}
+.meal-select-wrapper > .meal-card-wrapper > .meal-period-card {
+  height: 50%;
+  @include flexbox-container($justify-content: center, $align-items: center)
+}

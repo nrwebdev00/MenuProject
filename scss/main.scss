@@ -1,0 +1,176 @@
+@import "mixins"; //font-family($thin-100: $default: $default_i: $title: $link:) -- True or False
+// flexbox-container($justify-content:$flex:$flex-direction: false$align-items:$flex-wrap:$flex-flow:$align-content:$inline:
+//flexbox-items($order:$flex-grow:$flex-shrink:$flex-basis:$flex:$align-self)
+//border($size, $style, $color)
+@import "colors"; //$green-main, $brown-orange, $background $text-light-brown, $dark-green, $warning, $info, $shadow, $off-white
+
+body{
+  background-color: $off-white;
+  @include font-family($default: true);
+  color: $green-main;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+
+}#order-menu{
+   display: none;
+ }
+ .options{
+   display: none;
+ }
+.confirm-order{
+  display: none;
+}
+.heading-top{
+  @include flexbox-container($justify-content: center, $align-items: center);
+  background-color: $text-light-brown;
+  color: $brown-orange;
+  margin: 0;
+  border-bottom: 4px solid $dark-green;
+  box-shadow: 2px 2px 4px $shadow;
+}
+.heading-top > h1 {
+  @include font-family($title: true);
+  font-size: 3.0em;
+  padding: 20px;
+  text-shadow: 1px 1px 2px $shadow;
+}
+.sub-heading-info {
+  @include flexbox-container($justify-content: center, $align-items: center);
+  @include font-family($thin-100: true);
+  background-color: $background;
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 1.5em;
+  border-bottom: 1px solid $info;
+}
+.btn{
+  border: border($color: $dark-green);
+  border-radius: 5px;
+  background-color: $dark-green;
+  color: $background;
+  padding: 25px;
+  @include font-family($link: true);
+  font-size: 1.75em;
+  text-shadow: 2px 2px 4px $shadow;
+  cursor: pointer;
+}
+.order-meal-wrapper {
+  @include flexbox-item($flex: 5);
+}
+.menu-wrapper {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px;
+  padding: 25px;
+}
+.menu-wrapper > .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 50px;
+}
+.order-card {
+  height: 300px;
+  border: border($size: 2px, $color: $dark-green);
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px $shadow;
+  padding: 15px;
+}
+.order-card-title {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  margin-bottom: 30px;
+}
+.item, .price {
+  @include font-family($thin-100: true);
+  font-size: 1.2em;
+  text-align: center;
+}
+.order-btn, .confirm-order-btn {
+  margin-bottom: 20px;
+  height: 40px;
+  border: border($color: $dark-green);
+  border-radius: 5px;
+  background-color: $dark-green;
+  color: $off-white;
+  @include flexbox-container($justify-content: center, $align-items: center);
+  @include font-family($link: true);
+  font-size: 1.2em;
+  cursor: pointer;
+}
+.order-card-options{
+  @include font-family($thin-100: true);
+  font-size: 1.2em;
+}
+.order-card-options li{
+  margin-bottom: 5px;
+}
+.order-card-options li:nth-child(1){
+  text-align: center;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.order-card-options li:nth-child(4){
+  margin-bottom: 30px;
+}
+.options {
+  display: none;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 5px;
+}
+.option {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+}
+.name, .price {
+  margin-top: 5px;
+  @include font-family($thin-100: true);
+  text-transform: capitalize;
+  font-size: 1.20em;
+}
+.add-btn {
+  border: border($color: $dark-green);
+  background-color: $dark-green;
+  color: $off-white;
+  height: 25px;
+  width: 35px;
+  font-size: .85em;
+  padding: 5px 2px 2px 2px;
+  @include font-family($thin-100: true);
+  text-align: center;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+.confirm-order{
+  grid-template-rows: 1fr 2fr 4fr;
+  grid-gap: 20px;
+  padding: 75px 150px;
+}
+.confirm-order > .greeting {
+  @include font-family($title: true);
+  font-size: 3.0em;
+  text-shadow: 1px 1px 2px $shadow;
+}
+.confirm-order > #total > span {
+  @include font-family($default: true);
+  font-size: 2.5em;
+  padding-bottom: 15px;
+}
+.confirm-order > #total > .final-total {
+  @include font-family($thin-100: true);
+  font-size: 2.25em;
+  padding: 25px 0 0 100px;
+}
+.confirm-order > ul > li {
+  @include font-family($thin-100: true);
+  font-size: 2.25em;
+  padding: 25px 0 0 100px;
+}
+.confirm-order > ul >li:nth-child(1){
+  @include font-family($default: true);
+  font-size: 2.5em;
+  padding: 0;
+}
