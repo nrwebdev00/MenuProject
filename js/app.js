@@ -7,11 +7,7 @@ let total = 0;
 const option = document.getElementsByClassName('name');
 const price = document.getElementsByClassName('option-price');
 let totalDisplay = document.getElementById('display-total');
-let WhatIsOrder = document.getElementsByClassName('What-is-order');
 let OrderList = [];
-
-
-
 menu = {
   Breakfast:{
       1:["Ham Steak", 13.56, "toast", 2.25, "Fruit", 3.25, "Pancake", 1.75],
@@ -56,7 +52,7 @@ const PlaceOrder = () =>{
    confrimOrder[0].style.display = 'grid';
    menuWrapper[0].style.display = 'none';
    greetingClass[0].innerHTML = greetings[indexValue];
-   totalFinal[0].innerHTML = total;
+   totalFinal[0].innerHTML = `$${total.toFixed(2)}`;
     for (let i =0; i < OrderList.length; i++){
         whatWasOrder[i].innerHTML = OrderList[i];
     }
@@ -76,7 +72,7 @@ const breakfast = () => {
     document.title = "Breakfast Menu";
     const subHeading = document.getElementsByClassName("sub-heading");
     subHeading[0].innerHTML = "Breakfast Menu";
-    subHeading[1].innerHTML = "Please Order Form the Breakfast Menu";
+    subHeading[1].innerHTML = "Please Order From the Breakfast Menu";
     mealSelected = 'Breakfast';
     renderBreakfastMenu();
 };
@@ -94,7 +90,7 @@ const lunch = () => {
     document.title = "Lunch Menu";
     const subHeading = document.getElementsByClassName("sub-heading");
     subHeading[0].innerHTML = "Lunch Menu";
-    subHeading[1].innerHTML = "Please Order Form the Lunch Menu";
+    subHeading[1].innerHTML = "Please Order From the Lunch Menu";
     mealSelected = 'Lunch';
     renderLunchMenu();
 };
@@ -104,7 +100,7 @@ const dinner = () => {
     document.title = "Dinner Menu";
     const subHeading = document.getElementsByClassName("sub-heading");
     subHeading[0].innerHTML = "Dinner Menu";
-    subHeading[1].innerHTML = "Please Order Form the Dinner Menu";
+    subHeading[1].innerHTML = "Please Order From the Dinner Menu";
     mealSelected = 'Dinner';
     renderDinnerMenu();
 };
@@ -128,7 +124,7 @@ const orderItem1 = () => {
     menuItems[4].style.display = 'none';
     if(mealSelected === 'Breakfast'){
         total = menu.Breakfast["1"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["1"][0]);
         option[0].innerHTML = menu.Breakfast["1"][2];
         price[0].innerHTML = menu.Breakfast["1"][3];
@@ -139,7 +135,7 @@ const orderItem1 = () => {
     }
     if(mealSelected === 'Lunch'){
         total = menu.Lunch["1"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["1"][0]);
         option[0].innerHTML = menu.Lunch["1"][2];
         price[0].innerHTML = menu.Lunch["1"][3];
@@ -150,7 +146,7 @@ const orderItem1 = () => {
     }
     if(mealSelected === 'Dinner'){
         total = menu.Dinner["1"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["1"][0]);
         option[0].innerHTML = menu.Dinner["1"][2];
         price[0].innerHTML = menu.Dinner["1"][3];
@@ -163,51 +159,51 @@ const orderItem1 = () => {
 const addOne = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["1"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["1"][2]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["1"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["1"][2]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Lunch["1"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["1"][2]);
     }
 };
 const addTwo = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["1"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["1"][4]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["1"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["1"][4]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Dinner["1"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["1"][4]);
     }
 };
 const addThree = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["1"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["1"][6]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["1"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["1"][6]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Dinner["1"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["1"][6]);
     }
 };
@@ -223,7 +219,7 @@ const orderItem2 = () => {
     menuItems[4].style.display = 'none';
     if(mealSelected === 'Breakfast'){
         total = menu.Breakfast["2"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["2"][0]);
         option[3].innerHTML = menu.Breakfast["2"][2];
         price[3].innerHTML = menu.Breakfast["2"][3];
@@ -234,7 +230,7 @@ const orderItem2 = () => {
     }
     if(mealSelected === 'Lunch'){
         total = menu.Lunch["2"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["2"][0]);
         option[3].innerHTML = menu.Lunch["2"][2];
         price[3].innerHTML = menu.Lunch["2"][3];
@@ -245,7 +241,7 @@ const orderItem2 = () => {
     }
     if(mealSelected === 'Dinner'){
         total = menu.Dinner["2"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["2"][0]);
         option[3].innerHTML = menu.Dinner["2"][2];
         price[3].innerHTML = menu.Dinner["2"][3];
@@ -258,17 +254,17 @@ const orderItem2 = () => {
 const addFour = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["2"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["2"][2]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["2"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["2"][2]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Dinner["2"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["2"][2]);
 
     }
@@ -276,34 +272,34 @@ const addFour = () => {
 const addFive = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["2"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["2"][4]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["2"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["2"][4]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Dinner["2"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["2"][4]);
     }
 };
 const addSix = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["2"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["2"][6]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["2"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["2"][5]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Dinner["2"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["2"][5]);
     }
 };
@@ -319,7 +315,7 @@ const orderItem3 = () => {
     menuItems[4].style.display = 'none';
     if(mealSelected === 'Breakfast'){
         total = menu.Breakfast["3"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["3"][0]);
         option[6].innerHTML = menu.Breakfast["3"][2];
         price[6].innerHTML = menu.Breakfast["3"][3];
@@ -330,7 +326,7 @@ const orderItem3 = () => {
     }
     if(mealSelected === 'Lunch'){
         total = menu.Lunch["3"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["3"][0]);
         option[6].innerHTML = menu.Lunch["3"][2];
         price[6].innerHTML = menu.Lunch["3"][3];
@@ -341,7 +337,7 @@ const orderItem3 = () => {
     }
     if(mealSelected === 'Dinner'){
         total = menu.Dinner["3"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["3"][0]);
         option[6].innerHTML = menu.Dinner["3"][2];
         price[6].innerHTML = menu.Dinner["3"][3];
@@ -354,51 +350,51 @@ const orderItem3 = () => {
 const addSeven = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["3"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["3"][2]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["3"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["3"][2]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Dinner["3"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["3"][2]);
     }
 };
 const addEight = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["3"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["3"][4]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["3"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["3"][4]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Dinner["3"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["3"][4]);
     }
 };
 const addNine = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["3"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["3"][6]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["3"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["3"][6]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Dinner["3"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["3"][6]);
     }
 };
@@ -414,7 +410,7 @@ const orderItem4 = () => {
     menuItems[4].style.display = 'none';
     if(mealSelected === 'Breakfast'){
         total = menu.Breakfast["4"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["4"][0]);
         option[9].innerHTML = menu.Breakfast["4"][2];
         price[9].innerHTML = menu.Breakfast["4"][3];
@@ -425,7 +421,7 @@ const orderItem4 = () => {
     }
     if(mealSelected === 'Lunch'){
         total = menu.Lunch["4"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["4"][0]);
         option[9].innerHTML = menu.Lunch["4"][2];
         price[9].innerHTML = menu.Lunch["4"][3];
@@ -436,7 +432,7 @@ const orderItem4 = () => {
     }
     if(mealSelected === 'Dinner'){
         total = menu.Dinner["4"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["4"][0]);
         option[9].innerHTML = menu.Dinner["4"][2];
         price[9].innerHTML = menu.Dinner["4"][3];
@@ -449,51 +445,51 @@ const orderItem4 = () => {
 const addTen = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["4"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["4"][2]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["4"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["4"][2]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Dinner["4"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["4"][2]);
     }
 };
 const addEleven = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["4"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["4"][4]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["4"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["4"][4]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Dinner["4"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["4"][4]);
     }
 };
 const addTwelve = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["4"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["4"][6]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["4"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["4"][6]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Dinner["4"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["4"][6]);
     }
 };
@@ -509,7 +505,7 @@ const orderItem5 = () => {
     menuItems[4].style.display = 'none';
     if(mealSelected === 'Breakfast'){
         total = menu.Breakfast["5"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["5"][0]);
         option[12].innerHTML = menu.Breakfast["5"][2];
         price[12].innerHTML = menu.Breakfast["5"][3];
@@ -520,7 +516,7 @@ const orderItem5 = () => {
     }
     if(mealSelected === 'Lunch'){
         total = menu.Lunch["5"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["5"][0]);
         option[12].innerHTML = menu.Lunch["5"][2];
         price[12].innerHTML = menu.Lunch["5"][3];
@@ -531,7 +527,7 @@ const orderItem5 = () => {
     }
     if(mealSelected === 'Dinner'){
         total = menu.Dinner["5"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["5"][0]);
         option[12].innerHTML = menu.Dinner["5"][2];
         price[12].innerHTML = menu.Dinner["5"][3];
@@ -544,51 +540,51 @@ const orderItem5 = () => {
 const addThreeteen = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["5"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["5"][2]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["5"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["5"][2]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Dinner["5"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["5"][2]);
     }
 };
 const addFourteen = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["5"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["5"][4]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["5"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["5"][4]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Dinner["5"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["5"][4]);
     }
 };
 const addFiveTeen = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["5"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["5"][6]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["5"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["5"][6]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Dinner["5"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["5"][6]);
     }
 };
@@ -604,7 +600,7 @@ const orderItem6 = () => {
     menuItems[4].style.display = 'none';
     if(mealSelected === 'Breakfast'){
         total = menu.Breakfast["6"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["6"][0]);
         option[15].innerHTML = menu.Breakfast["6"][2];
         price[15].innerHTML = menu.Breakfast["6"][3];
@@ -615,7 +611,7 @@ const orderItem6 = () => {
     }
     if(mealSelected === 'Lunch'){
         total = menu.Lunch["6"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["6"][0]);
         option[15].innerHTML = menu.Lunch["6"][2];
         price[15].innerHTML = menu.Lunch["6"][3];
@@ -626,7 +622,7 @@ const orderItem6 = () => {
     }
     if(mealSelected === 'Dinner'){
         total = menu.Dinner["6"][1];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["6"][0]);
         option[15].innerHTML = menu.Dinner["6"][2];
         price[15].innerHTML = menu.Dinner["6"][3];
@@ -639,51 +635,51 @@ const orderItem6 = () => {
 const addSixteen = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["6"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["6"][2]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["6"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["6"][2]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Dinner["6"][3];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["6"][2]);
     }
 };
 const addSevenTeen = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["6"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["6"][4]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["6"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["6"][4]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Dinner["6"][5];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["6"][4]);
     }
 };
 const addEightTeen = () => {
     if(mealSelected === 'Breakfast'){
         total = total + menu.Breakfast["6"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Breakfast["6"][6]);
     }
     if(mealSelected === 'Lunch'){
         total = total + menu.Lunch["6"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Lunch["6"][6]);
     }
     if(mealSelected === 'Dinner'){
         total = total + menu.Dinner["6"][7];
-        totalDisplay.innerText = total;
+        totalDisplay.innerText = `$${total.toFixed(2)}`;
         OrderList.push(menu.Dinner["6"][6]);
     }
 };
