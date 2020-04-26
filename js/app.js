@@ -12,7 +12,7 @@ let total = 0;
 let OrderList = [];
 menu = {
   Breakfast:{
-      1:["Ham Steak", 13.56, "toast", 2.25, "Fruit", 3.25, "Pancake", 1.75],
+      1:["Ham Steak", 15.56, "toast", 2.25, "Fruit", 3.25, "Pancake", 1.75],
       2:["Chicken Fired Steak", 14.56, "Extra Gravy", 2.75, "Fruit", 3.25, "Pancake", 1.75],
       3:["Corn Beef and Hash", 12.23, "toast", 2.25, "Fruit", 3.25, "Pancake", 1.75],
       4:["PanCakes", 9.99, "2 Eggs", 4.15, "Fruit", 3.25, "Bacon", 255.75],
