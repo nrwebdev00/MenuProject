@@ -1,10 +1,12 @@
 let orderMenu = document.getElementById('order-menu');
 let mealSelect = document.getElementById('meal-select');
 let totalDisplay = document.getElementById('display-total');
+let subHeadingTotal = document.getElementById('sub-heading-total');
 let itemOptions = document.getElementsByClassName('options');
 let orderBtn = document.getElementsByClassName( 'order-btn');
 const option = document.getElementsByClassName('name');
 const price = document.getElementsByClassName('option-price');
+
 let mealSelected = null;
 let total = 0;
 let OrderList = [];
@@ -51,14 +53,19 @@ function createMeal(meal){
 }
 function PlaceOrder(){
     let greetings = ["Thank You For Your Order", "Thank You Very Much, please come again",
-        "See are sad to see you go, but happy when you return", "You Rock Thank You", "Wow that order looks Good", "Enjoy Your Order"];
+        "We are sad to see you go, but happy when you return", "You Rock Thank You", "Wow that order looks Good", "Enjoy Your Order"];
     let indexValue = Math.floor((Math.random() * greetings.length));
     document.getElementsByClassName("confirm-order")[0].style.display = 'grid';
     document.getElementsByClassName("menu-wrapper")[0].style.display = 'none';
     document.getElementsByClassName("greeting")[0].innerHTML = greetings[indexValue];
     document.getElementsByClassName('final-total')[0].innerHTML = `$${total.toFixed(2)}`;
+
     for (let i =0; i < OrderList.length; i++){
-        document.getElementsByClassName('what-isorder')[i].innerHTML = OrderList[i];
+        const newElement = document.createElement('div');
+        const content = document.createTextNode(OrderList[i]);
+        newElement.classList.add('order-list');
+        newElement.appendChild(content);
+        document.querySelector('.display-order-list').appendChild(newElement);
     }
 }
 
@@ -73,6 +80,7 @@ const renderBreakfastMenu = () =>{
             menu.Breakfast[index +1][1]);
     }
 };
+
 const lunch = () => {
     createMeal("Lunch");
     renderLunchMenu();
@@ -84,6 +92,7 @@ const renderLunchMenu = () =>{
             menu.Lunch[index +1][1]);
     }
 };
+
 const dinner = () => {
     createMeal("Dinner");
     renderDinnerMenu();
@@ -94,6 +103,13 @@ const renderDinnerMenu = () =>{
             menu.Dinner[index +1][1]);
     }
 };
+
+// const newElement = document.createElement('div');
+// const content = document.createTextNode(OrderList[i]);
+// newElement.classList.add('order-list');
+// newElement.appendChild(content);
+// document.querySelector('.display-order-list').appendChild(newElement);
+
 
 function addOrderOptionsBreakfast (item,priceIndex,nameIndex) {
     total = total + menu.Breakfast[item][priceIndex];
@@ -114,6 +130,7 @@ function addOrderOptionsDinner (item,priceIndex,nameIndex) {
 const orderItem1 = () => {
     orderBtn[0].style.display = 'none';
     itemOptions[0].style.display = 'grid';
+    subHeadingTotal.style.display = 'grid';
     let menuItems = document.querySelectorAll('#item-2, #item-3,#item-4, #item-5, #item-6');
     for(let i = 0; i < 5; i++ ){menuItems[i].style.display = 'none'}
     if(mealSelected === 'Breakfast'){
@@ -187,6 +204,7 @@ const addThree = () => {
 const orderItem2 = () => {
     orderBtn[1].style.display = 'none';
     itemOptions[1].style.display = 'grid';
+    subHeadingTotal.style.display = 'grid';
     let menuItems = document.querySelectorAll('#item-1, #item-3,#item-4, #item-5, #item-6');
     for(let i = 0; i < 5; i++ ){menuItems[i].style.display = 'none'}
     if(mealSelected === 'Breakfast'){
@@ -260,6 +278,7 @@ const addSix = () => {
 const orderItem3 = () => {
     orderBtn[2].style.display = 'none';
     itemOptions[2].style.display = 'grid';
+    subHeadingTotal.style.display = 'grid';
     let menuItems = document.querySelectorAll('#item-2, #item-1,#item-4, #item-5, #item-6');
     for(let i = 0; i < 5; i++ ){menuItems[i].style.display = 'none'}
     if(mealSelected === 'Breakfast'){
@@ -333,6 +352,7 @@ const addNine = () => {
 const orderItem4 = () => {
     orderBtn[3].style.display = 'none';
     itemOptions[3].style.display = 'grid';
+    subHeadingTotal.style.display = 'grid';
     let menuItems = document.querySelectorAll('#item-2, #item-3,#item-1, #item-5, #item-6');
     for(let i = 0; i < 5; i++ ){menuItems[i].style.display = 'none'}
     if(mealSelected === 'Breakfast'){
@@ -406,6 +426,7 @@ const addTwelve = () => {
 const orderItem5 = () => {
     orderBtn[4].style.display = 'none';
     itemOptions[4].style.display = 'grid';
+    subHeadingTotal.style.display = 'grid';
     let menuItems = document.querySelectorAll('#item-2, #item-3,#item-4, #item-1, #item-6');
     for(let i = 0; i < 5; i++ ){menuItems[i].style.display = 'none'}
     if(mealSelected === 'Breakfast'){
@@ -479,6 +500,7 @@ const addFiveTeen = () => {
 const orderItem6 = () => {
     orderBtn[5].style.display = 'none';
     itemOptions[5].style.display = 'grid';
+    subHeadingTotal.style.display = 'grid';
     let menuItems = document.querySelectorAll('#item-2, #item-3,#item-4, #item-5, #item-1');
     for(let i = 0; i < 5; i++ ){menuItems[i].style.display = 'none'}
     if(mealSelected === 'Breakfast'){

@@ -17,10 +17,11 @@
     </div>
     <div class="meal-select-wrapper">
         <div class="info-panel">
-            <h1>
+            <h1 id="sub-heading-h1">
+                <div class="flashMessage"></div>
                 <span class="sub-heading" >Please Select Which Meal period to Order from</span>
                 <div id="order-info">
-                    <span>Your Total is: <span id="display-total"></span><br></span>
+                    <span id="sub-heading-total">Your Total is: <span id="display-total"></span><br></span>
                 </div>
 
             </h1>
@@ -202,12 +203,12 @@
                     <span>Your Final Total is:</span>
                     <div class="final-total"></div>
                 </div>
-                <ul>
-                    <li>Your Order is:</li>
-                    <li class="what-isorder"></li>
-                    <li class="what-isorder"></li>
-                    <li class="what-isorder"></li>
-                </ul>
+                <div class="what-isorder-wrapper">
+                    <div class="what-isorder-title">Your Order is:</div>
+                    <div class="display-order-list">
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>

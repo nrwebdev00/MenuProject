@@ -22,6 +22,9 @@ a{
 .confirm-order{
   display: none;
 }
+#sub-heading-total{
+  display: none;
+}
 .heading-top{
   @include flexbox-container($justify-content: center, $align-items: center);
   background-color: $text-light-brown;
@@ -71,7 +74,8 @@ a{
   grid-gap: 50px;
 }
 .order-card {
-  height: 300px;
+  min-height: 200px;
+  max-height: 100%;
   border: border($size: 2px, $color: $dark-green);
   border-radius: 5px;
   box-shadow: 2px 2px 4px $shadow;
@@ -143,6 +147,7 @@ a{
   text-align: center;
   border-radius: 5px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 .confirm-order{
   grid-template-rows: 1fr 2fr 4fr;
@@ -159,18 +164,21 @@ a{
   font-size: 2.5em;
   padding-bottom: 15px;
 }
-.confirm-order > #total > .final-total {
+.confirm-order > #total > .final-total,  {
   @include font-family($thin-100: true);
   font-size: 2.25em;
   padding: 25px 0 0 100px;
 }
-.confirm-order > ul > li {
-  @include font-family($thin-100: true);
-  font-size: 2.25em;
-  padding: 25px 0 0 100px;
-}
-.confirm-order > ul >li:nth-child(1){
+.what-isorder-title {
   @include font-family($default: true);
   font-size: 2.5em;
-  padding: 0;
+  padding-bottom: 15px;
+}
+.display-order-list {
+  @include font-family($thin-100: true);
+  font-size: 2.25em;
+  padding: 25px 0 0 100px;
+}
+.order-list {
+  padding-top: 5px;
 }
