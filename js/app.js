@@ -1,12 +1,12 @@
 let orderMenu = document.getElementById('order-menu');
 let mealSelect = document.getElementById('meal-select');
+let totalDisplay = document.getElementById('display-total');
 let itemOptions = document.getElementsByClassName('options');
 let orderBtn = document.getElementsByClassName( 'order-btn');
-let mealSelected = null;
-let total = 0;
 const option = document.getElementsByClassName('name');
 const price = document.getElementsByClassName('option-price');
-let totalDisplay = document.getElementById('display-total');
+let mealSelected = null;
+let total = 0;
 let OrderList = [];
 menu = {
   Breakfast:{
@@ -41,87 +41,81 @@ function buildMenuCard(index, item, price) {
     itemClass[index].innerHTML = item;
     priceClass[index].innerHTML = price;
 }
-const PlaceOrder = () =>{
-   let confrimOrder = document.getElementsByClassName("confirm-order") ;
-   let menuWrapper = document.getElementsByClassName("menu-wrapper");
-   let greetingClass = document.getElementsByClassName( "greeting");
-   let totalFinal = document.getElementsByClassName('final-total');
-   let whatWasOrder = document.getElementsByClassName('what-isorder');
-   let greetings = ["Thank You For Your Order", "You Rock Thank You", "Wow that order looks Good", "Enjoy Your Order"];
-   let indexValue = Math.floor((Math.random() * greetings.length));
-   confrimOrder[0].style.display = 'grid';
-   menuWrapper[0].style.display = 'none';
-   greetingClass[0].innerHTML = greetings[indexValue];
-   totalFinal[0].innerHTML = `$${total.toFixed(2)}`;
+function createMeal(meal){
+    mealSelect.style.display = 'none';
+    orderMenu.style.display = 'block';
+    document.title = `${meal} Menu`;
+    document.getElementsByClassName("sub-heading")[0].innerHTML = `${meal} Menu`;
+    document.getElementsByClassName("sub-heading")[1].innerHTML = `Please Order From the ${meal} Menu`;
+    mealSelected = `${meal}`;
+}
+function PlaceOrder(){
+    let greetings = ["Thank You For Your Order", "Thank You Very Much, please come again",
+        "See are sad to see you go, but happy when you return", "You Rock Thank You", "Wow that order looks Good", "Enjoy Your Order"];
+    let indexValue = Math.floor((Math.random() * greetings.length));
+    document.getElementsByClassName("confirm-order")[0].style.display = 'grid';
+    document.getElementsByClassName("menu-wrapper")[0].style.display = 'none';
+    document.getElementsByClassName("greeting")[0].innerHTML = greetings[indexValue];
+    document.getElementsByClassName('final-total')[0].innerHTML = `$${total.toFixed(2)}`;
     for (let i =0; i < OrderList.length; i++){
-        whatWasOrder[i].innerHTML = OrderList[i];
+        document.getElementsByClassName('what-isorder')[i].innerHTML = OrderList[i];
     }
- };
+}
 
+const breakfast = () => {
+    createMeal("Breakfast");
+    renderBreakfastMenu();
+};
 const renderBreakfastMenu = () =>{
-    let index = 0;
-    for (index; index <=5; index++){
+    for (let index = 0; index <=5; index++){
         buildMenuCard(index,
             menu.Breakfast[index + 1][0],
             menu.Breakfast[index +1][1]);
     }
 };
-const breakfast = () => {
-    mealSelect.style.display = 'none';
-    orderMenu.style.display = 'block';
-    document.title = "Breakfast Menu";
-    const subHeading = document.getElementsByClassName("sub-heading");
-    subHeading[0].innerHTML = "Breakfast Menu";
-    subHeading[1].innerHTML = "Please Order From the Breakfast Menu";
-    mealSelected = 'Breakfast';
-    renderBreakfastMenu();
+const lunch = () => {
+    createMeal("Lunch");
+    renderLunchMenu();
 };
 const renderLunchMenu = () =>{
-    let index = 0;
-    for (index; index <=5; index++){
+    for (let index = 0; index <=5; index++){
         buildMenuCard(index,
             menu.Lunch[index + 1][0],
             menu.Lunch[index +1][1]);
     }
 };
-const lunch = () => {
-    mealSelect.style.display = 'none';
-    orderMenu.style.display = 'block';
-    document.title = "Lunch Menu";
-    const subHeading = document.getElementsByClassName("sub-heading");
-    subHeading[0].innerHTML = "Lunch Menu";
-    subHeading[1].innerHTML = "Please Order From the Lunch Menu";
-    mealSelected = 'Lunch';
-    renderLunchMenu();
-};
 const dinner = () => {
-    mealSelect.style.display = 'none';
-    orderMenu.style.display = 'block';
-    document.title = "Dinner Menu";
-    const subHeading = document.getElementsByClassName("sub-heading");
-    subHeading[0].innerHTML = "Dinner Menu";
-    subHeading[1].innerHTML = "Please Order From the Dinner Menu";
-    mealSelected = 'Dinner';
+    createMeal("Dinner");
     renderDinnerMenu();
 };
 const renderDinnerMenu = () =>{
-    let index = 0;
-    for (index; index <=5; index++){
+    for (let index = 0; index <=5; index++){
         buildMenuCard(index, menu.Dinner[index + 1][0],
             menu.Dinner[index +1][1]);
     }
 };
 
+function addOrderOptionsBreakfast (item,priceIndex,nameIndex) {
+    total = total + menu.Breakfast[item][priceIndex];
+    totalDisplay.innerText = `$${total.toFixed(2)}`;
+    OrderList.push(menu.Breakfast[item][nameIndex]);
+}
+function addOrderOptionsLunch (item,priceIndex,nameIndex) {
+    total = total + menu.Lunch[item][priceIndex];
+    totalDisplay.innerText = `$${total.toFixed(2)}`;
+    OrderList.push(menu.Lunch[item][nameIndex]);
+}
+function addOrderOptionsDinner (item,priceIndex,nameIndex) {
+    total = total + menu.Dinner[item][priceIndex];
+    totalDisplay.innerText = `$${total.toFixed(2)}`;
+    OrderList.push(menu.Dinner[item][nameIndex]);
+}
 
 const orderItem1 = () => {
     orderBtn[0].style.display = 'none';
     itemOptions[0].style.display = 'grid';
     let menuItems = document.querySelectorAll('#item-2, #item-3,#item-4, #item-5, #item-6');
-    menuItems[0].style.display = 'none';
-    menuItems[1].style.display = 'none';
-    menuItems[2].style.display = 'none';
-    menuItems[3].style.display = 'none';
-    menuItems[4].style.display = 'none';
+    for(let i = 0; i < 5; i++ ){menuItems[i].style.display = 'none'}
     if(mealSelected === 'Breakfast'){
         total = menu.Breakfast["1"][1];
         totalDisplay.innerText = `$${total.toFixed(2)}`;
@@ -158,53 +152,35 @@ const orderItem1 = () => {
 };
 const addOne = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["1"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["1"][2]);
+        addOrderOptionsBreakfast(1, 3, 2);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["1"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["1"][2]);
+        addOrderOptionsLunch(1, 3, 2);
     }
     if(mealSelected === 'Dinner'){
-        total = total + menu.Lunch["1"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["1"][2]);
+        addOrderOptionsDinner(1, 3, 2);
     }
 };
 const addTwo = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["1"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["1"][4]);
+        addOrderOptionsBreakfast(1, 5, 4);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["1"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["1"][4]);
+        addOrderOptionsLunch(1, 5, 4);
     }
     if(mealSelected === 'Dinner'){
-        total = total + menu.Dinner["1"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Dinner["1"][4]);
+        addOrderOptionsDinner(1, 5, 4);
     }
 };
 const addThree = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["1"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["1"][6]);
+        addOrderOptionsBreakfast(1, 7, 6);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["1"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["1"][6]);
+        addOrderOptionsLunch(1, 7, 6);
     }
     if(mealSelected === 'Dinner'){
-        total = total + menu.Dinner["1"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Dinner["1"][6]);
+        addOrderOptionsDinner(1, 7, 6);
     }
 };
 
@@ -212,11 +188,7 @@ const orderItem2 = () => {
     orderBtn[1].style.display = 'none';
     itemOptions[1].style.display = 'grid';
     let menuItems = document.querySelectorAll('#item-1, #item-3,#item-4, #item-5, #item-6');
-    menuItems[0].style.display = 'none';
-    menuItems[1].style.display = 'none';
-    menuItems[2].style.display = 'none';
-    menuItems[3].style.display = 'none';
-    menuItems[4].style.display = 'none';
+    for(let i = 0; i < 5; i++ ){menuItems[i].style.display = 'none'}
     if(mealSelected === 'Breakfast'){
         total = menu.Breakfast["2"][1];
         totalDisplay.innerText = `$${total.toFixed(2)}`;
@@ -253,54 +225,35 @@ const orderItem2 = () => {
 };
 const addFour = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["2"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["2"][2]);
+        addOrderOptionsBreakfast(2, 3, 2);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["2"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["2"][2]);
+        addOrderOptionsLunch(2, 3, 2);
     }
     if(mealSelected === 'Dinner'){
-        total = total + menu.Dinner["2"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Dinner["2"][2]);
-
+        addOrderOptionsDinner(2, 3, 2);
     }
 };
 const addFive = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["2"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["2"][4]);
+        addOrderOptionsBreakfast(2, 5, 4);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["2"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["2"][4]);
+        addOrderOptionsLunch(2, 5, 4);
     }
     if(mealSelected === 'Dinner'){
-        total = total + menu.Dinner["2"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Dinner["2"][4]);
+        addOrderOptionsDinner(2, 5, 4);
     }
 };
 const addSix = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["2"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["2"][6]);
+        addOrderOptionsBreakfast(2, 7, 6);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["2"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["2"][5]);
+        addOrderOptionsLunch(2, 7, 6);
     }
-    if(mealSelected === 'Dinner'){
-        total = total + menu.Dinner["2"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Dinner["2"][5]);
+    if(mealSelected === 'Dinner') {
+        addOrderOptionsDinner(2, 7, 6);
     }
 };
 
@@ -308,11 +261,7 @@ const orderItem3 = () => {
     orderBtn[2].style.display = 'none';
     itemOptions[2].style.display = 'grid';
     let menuItems = document.querySelectorAll('#item-2, #item-1,#item-4, #item-5, #item-6');
-    menuItems[0].style.display = 'none';
-    menuItems[1].style.display = 'none';
-    menuItems[2].style.display = 'none';
-    menuItems[3].style.display = 'none';
-    menuItems[4].style.display = 'none';
+    for(let i = 0; i < 5; i++ ){menuItems[i].style.display = 'none'}
     if(mealSelected === 'Breakfast'){
         total = menu.Breakfast["3"][1];
         totalDisplay.innerText = `$${total.toFixed(2)}`;
@@ -349,53 +298,35 @@ const orderItem3 = () => {
 };
 const addSeven = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["3"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["3"][2]);
+        addOrderOptionsBreakfast(3, 3, 2);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["3"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["3"][2]);
+        addOrderOptionsLunch(3, 3, 2);
     }
     if(mealSelected === 'Dinner'){
-        total = total + menu.Dinner["3"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Dinner["3"][2]);
+        addOrderOptionsDinner(3, 3, 2);
     }
 };
 const addEight = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["3"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["3"][4]);
+        addOrderOptionsBreakfast(3, 5, 4);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["3"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["3"][4]);
+        addOrderOptionsLunch(3, 5, 4);
     }
     if(mealSelected === 'Dinner'){
-        total = total + menu.Dinner["3"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Dinner["3"][4]);
+        addOrderOptionsDinner(3, 5, 4);
     }
 };
 const addNine = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["3"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["3"][6]);
+        addOrderOptionsBreakfast(3, 7, 6);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["3"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["3"][6]);
+        addOrderOptionsLunch(3, 7, 6);
     }
     if(mealSelected === 'Dinner'){
-        total = total + menu.Dinner["3"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["3"][6]);
+        addOrderOptionsDinner(3, 7, 6);
     }
 };
 
@@ -403,11 +334,7 @@ const orderItem4 = () => {
     orderBtn[3].style.display = 'none';
     itemOptions[3].style.display = 'grid';
     let menuItems = document.querySelectorAll('#item-2, #item-3,#item-1, #item-5, #item-6');
-    menuItems[0].style.display = 'none';
-    menuItems[1].style.display = 'none';
-    menuItems[2].style.display = 'none';
-    menuItems[3].style.display = 'none';
-    menuItems[4].style.display = 'none';
+    for(let i = 0; i < 5; i++ ){menuItems[i].style.display = 'none'}
     if(mealSelected === 'Breakfast'){
         total = menu.Breakfast["4"][1];
         totalDisplay.innerText = `$${total.toFixed(2)}`;
@@ -444,53 +371,35 @@ const orderItem4 = () => {
 };
 const addTen = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["4"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["4"][2]);
+        addOrderOptionsBreakfast(4, 3, 2);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["4"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["4"][2]);
+        addOrderOptionsLunch(4, 3, 2);
     }
     if(mealSelected === 'Dinner'){
-        total = total + menu.Dinner["4"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Dinner["4"][2]);
+        addOrderOptionsDinner(4, 3, 2);
     }
 };
 const addEleven = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["4"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["4"][4]);
+        addOrderOptionsBreakfast(4, 5, 2);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["4"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["4"][4]);
+        addOrderOptionsLunch(4, 5, 2);
     }
     if(mealSelected === 'Dinner'){
-        total = total + menu.Dinner["4"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["4"][4]);
+        addOrderOptionsDinner(4, 5, 2);
     }
 };
 const addTwelve = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["4"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["4"][6]);
+        addOrderOptionsBreakfast(4, 7, 6);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["4"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["4"][6]);
+        addOrderOptionsLunch(4, 7, 6);
     }
     if(mealSelected === 'Dinner'){
-        total = total + menu.Dinner["4"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["4"][6]);
+        addOrderOptionsDinner(4, 7, 6);
     }
 };
 
@@ -498,11 +407,7 @@ const orderItem5 = () => {
     orderBtn[4].style.display = 'none';
     itemOptions[4].style.display = 'grid';
     let menuItems = document.querySelectorAll('#item-2, #item-3,#item-4, #item-1, #item-6');
-    menuItems[0].style.display = 'none';
-    menuItems[1].style.display = 'none';
-    menuItems[2].style.display = 'none';
-    menuItems[3].style.display = 'none';
-    menuItems[4].style.display = 'none';
+    for(let i = 0; i < 5; i++ ){menuItems[i].style.display = 'none'}
     if(mealSelected === 'Breakfast'){
         total = menu.Breakfast["5"][1];
         totalDisplay.innerText = `$${total.toFixed(2)}`;
@@ -539,53 +444,35 @@ const orderItem5 = () => {
 };
 const addThreeteen = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["5"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["5"][2]);
+        addOrderOptionsBreakfast(5, 3, 2);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["5"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["5"][2]);
+        addOrderOptionsLunch(5, 3, 2);
     }
     if(mealSelected === 'Dinner'){
-        total = total + menu.Dinner["5"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Dinner["5"][2]);
+        addOrderOptionsDinner(5, 3, 2);
     }
 };
 const addFourteen = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["5"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["5"][4]);
+        addOrderOptionsBreakfast(5, 5, 4);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["5"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["5"][4]);
+        addOrderOptionsLunch(5, 5, 4);
     }
     if(mealSelected === 'Dinner'){
-        total = total + menu.Dinner["5"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Dinner["5"][4]);
+        addOrderOptionsDinner(5, 5, 4);
     }
 };
 const addFiveTeen = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["5"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["5"][6]);
+        addOrderOptionsBreakfast(5, 7, 6);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["5"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["5"][6]);
+        addOrderOptionsLunch(5, 7, 6);
     }
     if(mealSelected === 'Dinner'){
-        total = total + menu.Dinner["5"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Dinner["5"][6]);
+        addOrderOptionsDinner(5, 7, 6);
     }
 };
 
@@ -593,11 +480,7 @@ const orderItem6 = () => {
     orderBtn[5].style.display = 'none';
     itemOptions[5].style.display = 'grid';
     let menuItems = document.querySelectorAll('#item-2, #item-3,#item-4, #item-5, #item-1');
-    menuItems[0].style.display = 'none';
-    menuItems[1].style.display = 'none';
-    menuItems[2].style.display = 'none';
-    menuItems[3].style.display = 'none';
-    menuItems[4].style.display = 'none';
+    for(let i = 0; i < 5; i++ ){menuItems[i].style.display = 'none'}
     if(mealSelected === 'Breakfast'){
         total = menu.Breakfast["6"][1];
         totalDisplay.innerText = `$${total.toFixed(2)}`;
@@ -634,56 +517,34 @@ const orderItem6 = () => {
 };
 const addSixteen = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["6"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["6"][2]);
+        addOrderOptionsBreakfast(6, 3,2);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["6"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["6"][2]);
+        addOrderOptionsLunch(6, 3,2);
     }
     if(mealSelected === 'Dinner'){
-        total = total + menu.Dinner["6"][3];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Dinner["6"][2]);
+        addOrderOptionsDinner(6, 3,2);
     }
 };
 const addSevenTeen = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["6"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["6"][4]);
+        addOrderOptionsBreakfast(6, 5,4);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["6"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["6"][4]);
+        addOrderOptionsLunch(6, 5, 4);
     }
     if(mealSelected === 'Dinner'){
-        total = total + menu.Dinner["6"][5];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Dinner["6"][4]);
+        addOrderOptionsDinner(6, 5,4);
     }
 };
 const addEightTeen = () => {
     if(mealSelected === 'Breakfast'){
-        total = total + menu.Breakfast["6"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Breakfast["6"][6]);
+        addOrderOptionsBreakfast(6, 7, 6);
     }
     if(mealSelected === 'Lunch'){
-        total = total + menu.Lunch["6"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Lunch["6"][6]);
+        addOrderOptionsLunch(6, 7, 6);
     }
     if(mealSelected === 'Dinner'){
-        total = total + menu.Dinner["6"][7];
-        totalDisplay.innerText = `$${total.toFixed(2)}`;
-        OrderList.push(menu.Dinner["6"][6]);
+        addOrderOptionsDinner(6, 7, 6);
     }
 };
-
-
-
-
